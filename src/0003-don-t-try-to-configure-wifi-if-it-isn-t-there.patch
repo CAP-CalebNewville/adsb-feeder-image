@@ -22,7 +22,7 @@ index c2be6a0..2ee6a7a 100755
 +    exit 0
 +fi
 +
- DIST_NETWORK_FILE=/"${BASE_BOOT_MOUNT_PATH}"/${DIST_NAME,,}-wpa-supplicant.txt
+ DIST_NETWORK_FILE=/boot/${DIST_NAME,,}-wpa-supplicant.txt
  
  # allow configuring multiple wifi networks via /boot/DIST_NAME-wpa-supplicant.txt
 -- 
