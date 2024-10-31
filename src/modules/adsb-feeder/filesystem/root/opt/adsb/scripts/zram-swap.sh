@@ -145,6 +145,13 @@ echo $(( 4 * size ))K > "/sys/block/$NAME/disksize"
 mkswap "$DEV"
 swapon -p 100 "$DEV"
 
+
+# try turning off dphys-swapfile
+if systemctl is-enabled dphys-swapfile; then
+    systemctl disable --now dphys-swapfile || true
+    rm -f /var/swap
+fi
+
 # turn off file based swap
 TURNOFF=$(grep </proc/swaps -F -v -e zram -e Filename | cut -d' ' -f1)
 if [[ -n $TURNOFF ]]; then
