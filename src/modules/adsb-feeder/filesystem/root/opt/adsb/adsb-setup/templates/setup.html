@@ -12,14 +12,14 @@
   to find your Latitude, Longitude, and Altitude based on your address.
 </p>
 <p>
-  For a <strong>stage 2</strong> feeder that connects with already running micro feeder(s), the data here defines the
+  For a <strong>Stage 2</strong> feeder that connects with already running micro feeder(s), the data here defines the
   position you want to be the center of your combined map display. Make sure you select <strong>Stage 2 Setup</strong>
   below.
 </p>
 <p class="row">
   <span class="col-md">
     If you are re-installing the ADS-B Feeder Image and have made a backup of your configuration, you can also simply
-    restore those settings
+    restore those settings.
   </span>
   <span class="col-md">
     <a class="btn btn-secondary" href="{{  url_for('restore') }}">restore previous backup</a>
@@ -144,25 +144,25 @@
     <div id="explain-micro" style="display: {% if env_value_by_tag('aggregator_choice')=='micro' %} block {% else %}
                     none {% endif %}; font-size: normal;">
       With this option the image will be set up as a micro feeder, minimizing memory use and disabling many features.
-      This is designed to work with a second stage image that uses this feeder as its input and creates the map, feeds
+      This is designed to work with a Stage 2 feeder that uses this feeder as its input and creates the map, feeds
       the aggregators, etc.
     </div>
     <div id="explain-nano" style="display: {% if env_value_by_tag('aggregator_choice')=='nano' %} block {% else %}
                 none {% endif %}; font-size: normal;">
       With this option the image will be set up as a nano feeder, even more minimizing memory use and disabling many
       features, including the graphs running on the nano feeder.
-      This is designed to work with a second stage image that uses this feeder as its input and creates the map, feeds
+      This is designed to work with a Stage 2 feeder that uses this feeder as its input and creates the map, feeds
       the aggregators, etc. Compared to the micro feeder option this removes more local features and is additionally
       optimized to reduce disk IO.
     </div>
     <div id="explain-stage2" style="display: {% if env_value_by_tag('aggregator_choice')=='stage2' %} block {% else %}
                     none {% endif %}; font-size: normal;">
-      With this option the image will be set up as a stage 2 system, designed to connect to one or more micro feeder(s).
+      With this option the image will be set up as a Stage 2 system, designed to connect to one or more micro feeder(s).
       You can select for each of them individually which aggregators you want to feed, and you get a combined map of all
       the planes that the micro feeder(s) see.
       <br>
       {% if mem < 1800000 %} WARNING: Stage 2 setup with only {{ (mem / 1024) | int }} MB of memory
-      (400 to 600MB per microsite recommended){% endif %}
+      (400 to 600MB per microsite recommended).{% endif %}
     </div>
   </div>
   <br>
